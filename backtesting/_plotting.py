@@ -560,6 +560,16 @@ return this.labels[index] || "";
             else:
                 fig = new_indicator_figure()
                 indicator_figs.append(fig)
+            
+            if i == 1:
+                fig.add_layout(Span(location=results._strategy.lower_bs, dimension='width',
+                                                line_color='red', line_dash='dashed',
+                                                line_width=.5))
+                fig.add_layout(Span(location=results._strategy.upper_bs, dimension='width',
+                                                line_color='red', line_dash='dashed',
+                                                line_width=.5))
+                # print(f"plotting indicator {i} {value.name}")
+
             tooltips = []
             colors = value._opts['color']
             colors = colors and cycle(_as_list(colors)) or (
